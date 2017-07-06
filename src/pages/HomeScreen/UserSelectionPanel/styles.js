@@ -1,12 +1,12 @@
 export default {
    userSelectionPanel: {
-      margin: 'auto 20vw',
+      margin: 'auto 25vw',
       overflow: 'scroll',
-      height: '75vh',
+      height: '65vh',
    },
    userBox: {
       height: '10vh',
-      width: '50vw',
+      width: '40vw',
       margin: '1vw',
       border: '2px solid gray'
    },

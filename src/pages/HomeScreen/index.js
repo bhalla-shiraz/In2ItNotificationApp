@@ -1,16 +1,25 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { updateAlbums } from 'actions/albums'
+import { updateComments } from 'actions/comments'
 import { updateUsers } from 'actions/users'
 import { confirmUserSubmission } from 'actions/confirmation'
+import AppBar from './AppBar'
 import UserSelectionPanel from './UserSelectionPanel'
 import SelectedCount from './SelectedCount'
 import SelectedUserList from './SelectedUserList'
 
-
 class HomeScreen extends Component {
    componentWillMount() {
-      const { updateUsers } = this.props
+      const {
+         updateUsers,
+         updateAlbums,
+         updateComments,
+      } = this.props
+
       updateUsers()
+      updateAlbums()
+      updateComments()
    }
    render() {
       const {
@@ -23,6 +32,7 @@ class HomeScreen extends Component {
 
       return (
          <div>
+            <AppBar />
             {(confirmation)
             ?
              <SelectedUserList list={selectedUsers} />
@@ -40,7 +50,7 @@ class HomeScreen extends Component {
                   <button
                      onClick={confirmUserSubmission}
                      primary
-                     style={{margin: '3vh 21vw'}}
+                     style={{margin: '3vh 26vw'}}
                   >{'Confirm'}</button>
             </div>
           }
@@ -63,6 +73,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
    updateUsers,
    confirmUserSubmission,
+   updateAlbums,
+   updateComments,
 }
 
 HomeScreen.propTypes = {
@@ -72,6 +84,8 @@ HomeScreen.propTypes = {
    confirmation: PropTypes.bool,
    selectedUsers: PropTypes.array,
    confirmUserSubmission: PropTypes.func,
+   updateAlbums: PropTypes.func,
+   updateComments: PropTypes.func,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
