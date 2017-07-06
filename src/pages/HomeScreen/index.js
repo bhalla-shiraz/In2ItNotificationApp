@@ -8,6 +8,7 @@ import AppBar from './AppBar'
 import UserSelectionPanel from './UserSelectionPanel'
 import SelectedCount from './SelectedCount'
 import SelectedUserList from './SelectedUserList'
+import Style from './styles'
 
 class HomeScreen extends Component {
    componentWillMount() {
@@ -48,9 +49,9 @@ class HomeScreen extends Component {
                   style={{margin: '3vh 35vw'}}
                > {'The Above List is Scrollable'} </span>
                   <button
+                     style={Style.confirmButton}
                      onClick={confirmUserSubmission}
                      primary
-                     style={{margin: '3vh 26vw'}}
                   >{'Confirm'}</button>
             </div>
           }

@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import CommentList from './CommentList'
 import Style from './styles'
 
 const CommentBar = ({ toggle, data }) => {
@@ -6,10 +7,10 @@ const CommentBar = ({ toggle, data }) => {
       <div>
          <button
             style={Style.barIcon}
-            onClick={()=>{toggle()}}
-            >{'Comments'}
+            onClick={()=>{toggle()}}>
+            <i className="fa fa-commenting" aria-hidden="true" />
          </button>
-         {(data.open) ? <div style={Style.commentList} /> : ''}
+         {(data.open) ? <CommentList list={data.list}/> : ''}
       </div>
    )
 }

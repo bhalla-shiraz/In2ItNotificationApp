@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import AlbumList from './AlbumList'
 import Style from './styles'
 
 const AlbumBar = ({ toggle, data }) => {
@@ -8,9 +9,9 @@ const AlbumBar = ({ toggle, data }) => {
             style={Style.barIcon}
             onClick={()=>{toggle()}}
          >
-         {'Albums'}
+         <i className="fa fa-user" aria-hidden />
          </button>
-         {(data.open) ? <div style={Style.albumList} /> : ''}
+         {(data.open) ? <AlbumList list={data.list} /> : ''}
       </div>
    )
 }
