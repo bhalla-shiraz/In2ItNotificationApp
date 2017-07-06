@@ -23,7 +23,7 @@ AlbumList.propTypes = {
    list: PropTypes.array,
 }
 
-AlbumList.propTypes = {
+AlbumBox.propTypes = {
    data: PropTypes.object,
 }
 export default AlbumList
